@@ -3,7 +3,7 @@ from urllib.request import Request, urlopen
 import pandas as pd
 sum=0
 print("Τα αποτελεσματα των 20 τελευταίων γυρων είναι")
-for bhma in range(1,21):
+for bhma in range(20,0,-1):
     req = Request('https://drand.cloudflare.com/public/'+str(bhma), headers={'User-Agent': 'Mozilla/5.0 (Windows NT 6.1; WOW64; rv:31.0) Gecko/20130401 Firefox/31.0'})
     data = urlopen(req).read()
     txt=str(data)
@@ -17,10 +17,10 @@ for bhma in range(1,21):
     print("TO ΑΚΕΡΑΙΟ ΜΕΡΟΣ ΤΟΥ:",t4)
     print("ΤΟ ΔΕΚΑΕΞΑΔΙΚΟ:",hex(t4))
     print("-------------------------")  
-    print("!!!ΕΝΤΡΟΠΙΑ!!!")
-    t4=pd.Series(t4)
-    data=t4.value_counts()
-    print(en(data))
+print("!!!ΕΝΤΡΟΠΙΑ!!!")
+t4=pd.Series(t4)
+data=t4.value_counts()
+print(en(data))
 
 
     
